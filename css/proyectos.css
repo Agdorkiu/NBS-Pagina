@@ -33,7 +33,7 @@
   border: 1px solid var(--border);
   background: transparent;
   color: var(--gray);
-  cursor: none;
+  cursor: pointer;
   transition: all 0.2s;
 }
 
