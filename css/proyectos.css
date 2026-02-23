@@ -217,3 +217,77 @@
   .project-row::after { display: none; }
   .featured-project { grid-template-columns: 1fr; }
 }
+
+/* ---- Reemplaza/añade al final de css/proyectos.css ---- */
+
+/* Grid de fila: sin número, thumb cuadrado, info, categoría, fecha, enlace */
+.project-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 140px 160px 40px;
+  align-items: center;
+  gap: 28px;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.25s;
+  position: relative;
+  cursor: default;
+}
+
+/* Ocultar número de índice */
+.proj-index { display: none; }
+
+/* Sin desplazamiento de padding al hacer hover */
+.project-row:hover {
+  background: rgba(200, 255, 0, 0.03);
+  padding-left: 32px;
+}
+
+/* Eliminar la flecha del ::after (ya usamos .proj-link) */
+.project-row::after { display: none; }
+
+/* Thumbnail — cuadrado fijo */
+.proj-thumb {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(240,237,230,0.03);
+}
+
+.proj-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Categoría */
+.proj-category {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* Enlace externo — visible siempre, clickable */
+.proj-link {
+  font-size: 18px;
+  color: var(--accent);
+  opacity: 0.25;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.proj-link:hover { opacity: 1; }
+.proj-thumb--empty { background: rgba(240,237,230,0.03); }
+
+@media (max-width: 860px) {
+  .project-row { grid-template-columns: 48px 1fr; gap: 16px; padding: 20px; }
+  .proj-category, .proj-year, .proj-link { display: none; }
+}
