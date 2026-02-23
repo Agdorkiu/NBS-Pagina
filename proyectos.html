@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nomad Byte Studios — Proyectos</title>
+  <link rel="icon" type="image/png" href="assets/icono.png">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/proyectos.css">
 </head>
 <body>
-
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
 
   <nav>
     <a href="index.html" class="nav-logo">
@@ -29,14 +27,12 @@
   <main class="page proyectos-wrap">
 
     <div class="section-header anim-fade-up">
-      <p class="section-tag">// 003 — Nuestro trabajo</p>
+      <br>
       <h1 class="section-title">Proyectos<br>destacados</h1>
     </div>
 
-    <!-- Featured project — renderizado dinámicamente -->
     <div id="featured-container"></div>
 
-    <!-- Filter bar -->
     <div class="filter-bar">
       <span class="filter-label">Filtrar:</span>
       <button class="filter-btn active" data-filter="all">Todos</button>
@@ -46,10 +42,7 @@
       <button class="filter-btn" data-filter="auto">Automatización</button>
     </div>
 
-    <!-- Projects table — renderizado dinámicamente -->
-    <div class="projects-table" id="projects-table">
-      <!-- Los proyectos se inyectan aquí desde Supabase -->
-    </div>
+    <div class="projects-table" id="projects-table"></div>
 
   </main>
 

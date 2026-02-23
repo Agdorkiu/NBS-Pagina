@@ -118,7 +118,7 @@
   z-index: 1;
 }
 
-/* Team / Filosofía section */
+/* Philosophy section */
 .philosophy-section {
   display: grid;
   grid-template-columns: 340px 1fr;

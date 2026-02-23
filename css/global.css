@@ -14,6 +14,7 @@
   --font-display: 'Bebas Neue', sans-serif;
   --font-body:    'DM Sans', sans-serif;
   --font-mono:    'DM Mono', monospace;
+  --nav-height: 89px; /* altura del nav fijo */
 }
 
 /* ---- Reset ---- */
@@ -31,7 +32,6 @@ body {
   font-family: var(--font-body);
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
   min-height: 100vh;
 }
 
@@ -47,34 +47,6 @@ body::after {
   pointer-events: none;
   z-index: 9000;
 }
-
-/* ---- Custom Cursor ---- */
-.cursor {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s, width 0.2s, height 0.2s;
-}
-
-.cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.2s ease, opacity 0.3s;
-  opacity: 0.5;
-}
-
-body:hover .cursor-ring { opacity: 1; }
 
 /* ---- Navigation ---- */
 nav {
@@ -143,7 +115,7 @@ nav {
 /* ---- Page wrapper ---- */
 .page {
   min-height: 100vh;
-  padding-top: 96px;
+  padding-top: calc(var(--nav-height) + 40px);
 }
 
 /* ---- Section header ---- */
@@ -222,8 +194,8 @@ footer p {
   padding: 15px 30px;
   font-weight: 500;
   transition: transform 0.2s, box-shadow 0.2s;
-  cursor: none;
   border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -239,6 +211,5 @@ footer p {
   .nav-links { gap: 20px; }
   .nav-links a { font-size: 11px; }
   footer { padding: 28px 24px; }
-  body { cursor: auto; }
-  .cursor, .cursor-ring { display: none; }
+  .page { padding-top: calc(var(--nav-height) + 20px); }
 }

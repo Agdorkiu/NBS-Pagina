@@ -1,50 +1,9 @@
 /* =========================================
    NOMAD BYTE STUDIOS — nav.js
-   Cursor animation + active nav link
+   Active nav link + scroll reveal
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* ---- Custom cursor ---- */
-  const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursor-ring');
-
-  if (cursor && ring) {
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX;
-      my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top  = my + 'px';
-    });
-
-    (function animateRing() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(animateRing);
-    })();
-
-    // Scale cursor on interactive elements
-    const hoverEls = document.querySelectorAll(
-      'a, button, .service-card, .project-row, .value-row, .home-feature, .filter-btn, .faq-question'
-    );
-
-    hoverEls.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-        ring.style.transform   = 'translate(-50%,-50%) scale(1.5)';
-        ring.style.opacity     = '0.8';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-        ring.style.transform   = 'translate(-50%,-50%) scale(1)';
-        ring.style.opacity     = '0.5';
-      });
-    });
-  }
 
   /* ---- Active nav link ---- */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
