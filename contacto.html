@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomad Byte Studios — Contacto</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Nomad Byte Studios Logo">
+      <span class="nav-logo-text">Nomad Byte Studios</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main class="page contacto-wrap">
+
+    <div class="section-header anim-fade-up">
+      <p class="section-tag">// 004 — Hablemos</p>
+      <h1 class="section-title">Cuéntanos<br>tu idea</h1>
+    </div>
+
+    <div class="contact-layout">
+
+      <!-- Left: info + FAQ -->
+      <div class="contact-info-block">
+        <p class="lead">
+          ¿Tienes un proyecto en mente? Nos encanta escuchar ideas en cualquier etapa: desde un boceto en servilleta hasta un brief detallado. Respondemos en menos de 48 horas.
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-detail-row">
+            <span class="detail-key">Idiomas</span>
+            <span class="detail-val">Español · English</span>
+          </div>
+          <div class="contact-detail-row">
+            <span class="detail-key">Respuesta</span>
+            <span class="detail-val">&lt; 48 horas hábiles</span>
+          </div>
+          <div class="contact-detail-row">
+            <span class="detail-key">Zona horaria</span>
+            <span class="detail-val">Adaptable · Trabajo remoto</span>
+          </div>
+          <div class="contact-detail-row">
+            <span class="detail-key">Estado</span>
+            <span class="detail-val"><span class="status-dot"></span>Aceptando proyectos</span>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+          <p class="faq-title">// Preguntas frecuentes</p>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question">
+                ¿Trabajáis con clientes internacionales?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Sí, absolutamente. Trabajamos con clientes de cualquier país y nos adaptamos a diferentes zonas horarias. La comunicación es nuestra prioridad, independientemente de la distancia.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                ¿Cuánto cuesta un proyecto?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Cada proyecto es único, por lo que no tenemos tarifas fijas. Tras recibir tu briefing, preparamos un presupuesto detallado y adaptado a tus necesidades y presupuesto disponible.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                ¿Cuánto tiempo tarda un proyecto?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Depende del alcance. Una landing page puede estar lista en 1–2 semanas; una plataforma compleja puede llevar 2–4 meses. Siempre establecemos plazos reales desde el inicio.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                ¿Qué necesito para empezar?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Solo necesitas una idea y ganas de comunicarla. Cuéntanos qué quieres construir, para quién y con qué objetivo. El resto lo resolvemos juntos en una primera llamada sin compromiso.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div>
+        <div class="contact-form-block">
+          <div class="form-header">
+            <div class="form-header-dot"></div>
+            <span class="form-header-title">Formulario de contacto</span>
+          </div>
+
+          <div id="formBlock">
+            <form id="contactForm">
+              <div class="form-field">
+                <label for="cName">Tu nombre</label>
+                <input type="text" id="cName" name="name" placeholder="¿Cómo te llamas?" required>
+              </div>
+              <div class="form-field">
+                <label for="cEmail">Email de contacto</label>
+                <input type="email" id="cEmail" name="email" placeholder="tu@email.com" required>
+              </div>
+              <div class="form-field">
+                <label for="cService">Tipo de proyecto</label>
+                <select id="cService" name="service">
+                  <option value="">Selecciona una opción...</option>
+                  <option>Desarrollo Web</option>
+                  <option>Diseño UI/UX</option>
+                  <option>Branding Digital</option>
+                  <option>Desarrollo de App</option>
+                  <option>Consultoría Tech</option>
+                  <option>Automatización</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="cBudget">Presupuesto estimado</label>
+                <select id="cBudget" name="budget">
+                  <option value="">Selecciona un rango...</option>
+                  <option>Menos de 1.000 €</option>
+                  <option>1.000 € – 5.000 €</option>
+                  <option>5.000 € – 15.000 €</option>
+                  <option>Más de 15.000 €</option>
+                  <option>Por definir</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="cMessage">Tu mensaje</label>
+                <textarea id="cMessage" name="message" placeholder="Cuéntanos sobre tu idea, proyecto o necesidad. Cuánto más detalle, mejor..." required></textarea>
+              </div>
+
+              <!-- Error box -->
+              <div id="formError" style="
+                display: none;
+                padding: 12px 28px;
+                font-size: 13px;
+                color: #ff5555;
+                font-family: var(--font-mono);
+                border-top: 1px solid rgba(255,85,85,0.2);
+                background: rgba(255,85,85,0.05);
+              "></div>
+
+              <div class="form-footer">
+                <span class="form-note">Guardado en BD · Respuesta &lt; 48h</span>
+                <button type="submit" class="btn" id="submitBtn">
+                  <span id="submitLabel">Enviar mensaje</span>
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="width:14px">
+                    <path d="M3 8h10M9 4l4 4-4 4"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Success -->
+          <div class="form-success-overlay" id="formSuccess">
+            <div class="success-icon">✦</div>
+            <h3 class="success-title">¡Mensaje recibido!</h3>
+            <p class="success-body">
+              Tu mensaje ha sido guardado correctamente. Te responderemos en menos de 48 horas hábiles.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Nomad Byte Studios — Todos los derechos reservados</p>
+    <span class="footer-mark">NBS</span>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>

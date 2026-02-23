@@ -1,0 +1,219 @@
+/* =========================================
+   NOMAD BYTE STUDIOS — Proyectos
+   ========================================= */
+
+.proyectos-wrap {
+  padding: 80px 60px 0;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--gray);
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--gray);
+  cursor: none;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(200, 255, 0, 0.05);
+}
+
+/* Projects list */
+.projects-table {
+  border: 1px solid var(--border);
+  margin-bottom: 80px;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 200px 160px;
+  align-items: center;
+  gap: 32px;
+  padding: 34px 40px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.25s, padding-left 0.3s;
+  position: relative;
+}
+
+.project-row:last-child { border-bottom: none; }
+
+.project-row::after {
+  content: '→';
+  position: absolute;
+  right: 40px;
+  color: var(--accent);
+  font-size: 18px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.project-row:hover {
+  background: rgba(200, 255, 0, 0.03);
+  padding-left: 56px;
+}
+
+.project-row:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.proj-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.proj-info h3 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin-bottom: 5px;
+}
+
+.proj-info p {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.proj-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.proj-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  color: var(--gray);
+}
+
+.proj-year {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(136, 136, 136, 0.5);
+  text-align: right;
+  padding-right: 48px;
+}
+
+/* Featured project */
+.featured-project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  margin-bottom: 80px;
+  overflow: hidden;
+}
+
+.featured-visual {
+  background: var(--off-white);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-visual-inner {
+  width: 55%;
+  opacity: 0.9;
+  transition: transform 0.5s ease;
+}
+
+.featured-project:hover .featured-visual-inner { transform: scale(1.06); }
+
+.featured-label {
+  position: absolute;
+  top: 20px; left: 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--accent);
+  padding: 5px 12px;
+}
+
+.featured-content {
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-content h2 {
+  font-family: var(--font-display);
+  font-size: 44px;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.featured-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(240, 237, 230, 0.65);
+  margin-bottom: 36px;
+}
+
+.featured-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.meta-row {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+}
+
+.meta-row span:first-child {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  min-width: 80px;
+}
+
+.meta-row span:last-child { color: var(--gray); }
+
+@media (max-width: 860px) {
+  .proyectos-wrap { padding: 60px 24px 0; }
+  .project-row { grid-template-columns: 48px 1fr; gap: 16px; padding: 24px 20px; }
+  .proj-tags, .proj-year { display: none; }
+  .project-row::after { display: none; }
+  .featured-project { grid-template-columns: 1fr; }
+}

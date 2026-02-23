@@ -1,0 +1,180 @@
+/* =========================================
+   NOMAD BYTE STUDIOS — Nosotros
+   ========================================= */
+
+.nosotros-wrap {
+  padding: 80px 60px 0;
+}
+
+/* About intro split */
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  margin-bottom: 100px;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(240, 237, 230, 0.65);
+  margin-bottom: 22px;
+}
+
+.about-text p strong {
+  color: var(--off-white);
+  font-weight: 500;
+}
+
+.about-text p:first-child {
+  font-size: 20px;
+  line-height: 1.65;
+  color: rgba(240, 237, 230, 0.85);
+}
+
+/* Values list */
+.values-list {
+  border: 1px solid var(--border);
+}
+
+.value-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 30px 32px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.25s;
+}
+
+.value-row:last-child { border-bottom: none; }
+.value-row:hover { background: rgba(200, 255, 0, 0.04); }
+
+.value-index {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  padding-top: 3px;
+  min-width: 28px;
+}
+
+.value-body h4 {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 7px;
+}
+
+.value-body p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.65;
+}
+
+/* Stats bar */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  margin-bottom: 100px;
+}
+
+.stat-block {
+  padding: 52px 40px;
+  border-right: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-block:last-child { border-right: none; }
+
+.stat-block::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 0;
+  background: rgba(200, 255, 0, 0.04);
+  transition: height 0.4s ease;
+}
+
+.stat-block:hover::after { height: 100%; }
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 68px;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-desc {
+  font-size: 13px;
+  color: var(--gray);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* Team / Filosofía section */
+.philosophy-section {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 80px;
+  margin-bottom: 100px;
+  align-items: center;
+}
+
+.philosophy-visual {
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy-visual img {
+  width: 70%;
+  opacity: 0.85;
+  transition: transform 0.5s ease, opacity 0.3s;
+}
+
+.philosophy-visual:hover img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.philosophy-visual::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--border);
+}
+
+.philosophy-text h3 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+.philosophy-text p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(240, 237, 230, 0.65);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 860px) {
+  .nosotros-wrap { padding: 60px 24px 0; }
+  .about-intro { grid-template-columns: 1fr; gap: 48px; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .stat-block { border-bottom: 1px solid var(--border); }
+  .philosophy-section { grid-template-columns: 1fr; }
+  .philosophy-visual { max-width: 280px; }
+}

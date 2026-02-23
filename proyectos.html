@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomad Byte Studios — Proyectos</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/proyectos.css">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Nomad Byte Studios Logo">
+      <span class="nav-logo-text">Nomad Byte Studios</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main class="page proyectos-wrap">
+
+    <div class="section-header anim-fade-up">
+      <p class="section-tag">// 003 — Nuestro trabajo</p>
+      <h1 class="section-title">Proyectos<br>destacados</h1>
+    </div>
+
+    <!-- Featured project — renderizado dinámicamente -->
+    <div id="featured-container"></div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <span class="filter-label">Filtrar:</span>
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="app">App</button>
+      <button class="filter-btn" data-filter="design">Diseño</button>
+      <button class="filter-btn" data-filter="auto">Automatización</button>
+    </div>
+
+    <!-- Projects table — renderizado dinámicamente -->
+    <div class="projects-table" id="projects-table">
+      <!-- Los proyectos se inyectan aquí desde Supabase -->
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Nomad Byte Studios — Todos los derechos reservados</p>
+    <span class="footer-mark">NBS</span>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/proyectos.js"></script>
+</body>
+</html>
