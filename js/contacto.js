@@ -24,13 +24,12 @@
  * 7. Pega los 3 valores abajo:
  */
 
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';      // Reemplaza con tu Service ID
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';    // Reemplaza con tu Template ID
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';      // Reemplaza con tu Public Key
+const EMAILJS_SERVICE_ID = 'service_tozfw24';      // Reemplaza con tu Service ID
+const EMAILJS_TEMPLATE_ID = 'template_zbfw56p';    // Reemplaza con tu Template ID
+const EMAILJS_PUBLIC_KEY = '8oqWaM-p4l0tOyXQX';      // Reemplaza con tu Public Key
 
 // Elige a cuál email enviar los mensajes:
-const RECIPIENT_EMAIL = 'agdorkiu@gmail.com';      // Opción A (activa)
-// const RECIPIENT_EMAIL = 'nomadbytestudios.undrilled996@passfwd.com'; // Opción B (descomenta para usar)
+const RECIPIENT_EMAIL = 'agdorkiu@gmail.com'; 
 
 const SUPABASE_URL    = 'https://czkpxsqjjhfzgsipdanx.supabase.co';
 const SUPABASE_ANON   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6a3B4c3FqamhmemdzaXBkYW54Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4NDE5ODIsImV4cCI6MjA4NzQxNzk4Mn0.-JwHmA1wxZafiJm5KJTYkTnsOQzDdAKFY2tFQqNMvTA';
@@ -188,6 +187,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const presupuesto   = document.getElementById('cBudget') ? document.getElementById('cBudget').value : '';
       const mensaje       = document.getElementById('cMessage').value.trim();
 
+      // Validaciones básicas
+      if (!nombre || !email || !tipo_contacto || !mensaje) {
+        if (errorBox) {
+          errorBox.textContent = '⚠ Por favor, completa todos los campos.';
+          errorBox.style.display = 'block';
+        }
+        return;
+      }
+
       // Loading state
       submitBtn.disabled = true;
       submitLabel.textContent = 'Enviando...';
@@ -195,33 +203,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         // 1. Save to Supabase
-        await saveToSupabase({ 
-          nombre, 
-          email, 
-          tipo_contacto, 
-          tipoProyecto,
-          presupuesto, 
-          mensaje 
-        });
+        try {
+          // Envía todos los campos del formulario
+          const dataToSave = {
+            nombre, 
+            email, 
+            tipo_contacto,
+            tipo_proyecto: tipoProyecto,
+            presupuesto, 
+            mensaje
+          };
+          
+          await saveToSupabase(dataToSave);
+          console.log('✓ Mensaje guardado en Supabase');
+        } catch (supabaseErr) {
+          console.error('✗ Error en Supabase:', supabaseErr);
+          throw new Error(`Error al guardar: ${supabaseErr.message}`);
+        }
 
-        // 2. Send email via EmailJS
-        const emailSent = await sendEmailViaEmailJS({
-          nombre,
-          email,
-          tipo_contacto,
-          tipoProyecto,
-          presupuesto,
-          mensaje
-        });
+        // 2. Send email via EmailJS (opcional, no bloquea el éxito)
+        try {
+          const emailSent = await sendEmailViaEmailJS({
+            nombre,
+            email,
+            tipo_contacto,
+            tipoProyecto,
+            presupuesto,
+            mensaje
+          });
+          if (emailSent) {
+            console.log('✓ Email enviado correctamente');
+          } else {
+            console.warn('⚠ Email no se envió (EmailJS no configurado o cargado)');
+          }
+        } catch (emailErr) {
+          console.error('⚠ Error al enviar email (pero el mensaje fue guardado):', emailErr);
+        }
 
-        // 3. Show success (éxito incluso si el email no se envía, ya que Supabase sí guardó)
+        // 3. Show success
         formBlock.style.display = 'none';
         successPanel.classList.add('show');
 
       } catch (err) {
-        console.error('Error:', err);
+        console.error('Error final:', err);
         if (errorBox) {
-          errorBox.textContent = 'Hubo un error al enviar. Por favor, inténtalo de nuevo.';
+          let errorMessage = 'Hubo un error al enviar. ';
+          
+          // Mensajes de error específicos
+          if (err.message.includes('Supabase')) {
+            errorMessage += 'Error al guardar (Supabase). Comprueba que tus datos sean correctos.';
+          } else if (err.message.includes('fetch')) {
+            errorMessage += 'Error de conexión. Comprueba tu internet.';
+          } else {
+            errorMessage += err.message || 'Por favor, inténtalo de nuevo.';
+          }
+          
+          errorBox.textContent = errorMessage;
           errorBox.style.display = 'block';
         }
         submitBtn.disabled = false;
