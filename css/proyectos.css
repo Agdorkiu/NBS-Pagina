@@ -4,6 +4,8 @@
 
 .proyectos-wrap {
   padding: 80px 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Filter bar */
@@ -50,9 +52,32 @@
   margin-bottom: 80px;
 }
 
+/* Project thumbnail */
+.proj-thumb {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(240, 237, 230, 0.03);
+}
+
+.proj-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proj-thumb--empty {
+  background: rgba(240, 237, 230, 0.03);
+}
+
 .project-row {
   display: grid;
-  grid-template-columns: 72px 1fr 200px 160px;
+  grid-template-columns: 80px 1fr 200px 160px;
   align-items: center;
   gap: 32px;
   padding: 34px 40px;
@@ -88,6 +113,11 @@
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--accent);
+}
+
+.proj-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .proj-info h3 {
@@ -212,7 +242,11 @@
 
 @media (max-width: 860px) {
   .proyectos-wrap { padding: 60px 24px 0; }
-  .project-row { grid-template-columns: 48px 1fr; gap: 16px; padding: 20px; }
+  .proj-thumb {
+    width: 56px;
+    height: 56px;
+  }
+  .project-row { grid-template-columns: 56px 1fr; gap: 16px; padding: 20px; }
   .proj-category, .proj-year, .proj-link { display: none; }
   .proj-tags { display: none; }
   .project-row::after { display: none; }
@@ -220,101 +254,116 @@
 }
 
 @media (max-width: 600px) {
-  .proyectos-wrap { padding: 40px 16px 0; }
-  .filter-bar { margin-bottom: 32px; }
-  .filter-label { font-size: 9px; }
-  .filter-btn { font-size: 10px; padding: 6px 12px; }
-  .project-row { grid-template-columns: 40px 1fr; gap: 12px; padding: 16px; }
-  .proj-info h3 { font-size: 15px; }
-  .proj-info p { font-size: 12px; }
-  .featured-project { margin-bottom: 48px; }
-  .featured-label { font-size: 9px; padding: 4px 10px; top: 12px; left: 12px; }
-  .featured-content { padding: 32px 24px; }
-  .featured-content h2 { font-size: 28px; margin-bottom: 16px; }
-  .featured-content p { font-size: 13px; margin-bottom: 20px; }
-  .featured-meta { gap: 10px; margin-bottom: 20px; }
-  .meta-row { font-size: 12px; }
-  .meta-row span:first-child { font-size: 10px; }
+  .proyectos-wrap { 
+    padding: 32px 16px 0;
+    max-width: 100%;
+  }
+  .filter-bar { 
+    margin-bottom: 24px; 
+  }
+  .filter-label { 
+    font-size: 9px; 
+  }
+  .filter-btn { 
+    font-size: 9px; 
+    padding: 6px 12px; 
+  }
+  .proj-thumb {
+    width: 48px;
+    height: 48px;
+  }
+  .project-row { 
+    grid-template-columns: 48px 1fr; 
+    gap: 12px; 
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .proj-index {
+    display: none;
+  }
+  .proj-info { 
+    min-width: 0;
+    word-break: break-word;
+  }
+  .proj-info h3 { 
+    font-size: 14px;
+    line-height: 1.3;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .proj-info p { 
+    font-size: 11px;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+  }
+  .featured-project { 
+    margin-bottom: 40px;
+    border: 1px solid var(--border);
+  }
+  .featured-label { 
+    font-size: 8px; 
+    padding: 4px 8px; 
+    top: 10px; 
+    left: 10px; 
+  }
+  .featured-visual {
+    aspect-ratio: 3/2;
+  }
+  .featured-content { 
+    padding: 24px 16px;
+  }
+  .featured-content h2 { 
+    font-size: 22px; 
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .featured-content p { 
+    font-size: 12px; 
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .featured-meta { 
+    gap: 8px; 
+    margin-bottom: 16px; 
+  }
+  .meta-row { 
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .meta-row span:first-child { 
+    font-size: 9px; 
+  }
 }
 
 @media (max-width: 400px) {
-  .proyectos-wrap { padding: 32px 12px 0; }
-  .project-row { grid-template-columns: 32px 1fr; padding: 12px; }
-  .proj-info h3 { font-size: 13px; }
-  .featured-content { padding: 20px 16px; }
-  .featured-content h2 { font-size: 22px; }
-}
-
-/* ---- Reemplaza/añade al final de css/proyectos.css ---- */
-
-/* Grid de fila: sin número, thumb cuadrado, info, categoría, fecha, enlace */
-.project-row {
-  display: grid;
-  grid-template-columns: 56px 1fr 140px 160px 40px;
-  align-items: center;
-  gap: 28px;
-  padding: 20px 32px;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.25s;
-  position: relative;
-  cursor: default;
-}
-
-/* Ocultar número de índice */
-.proj-index { display: none; }
-
-/* Sin desplazamiento de padding al hacer hover */
-.project-row:hover {
-  background: rgba(200, 255, 0, 0.03);
-  padding-left: 32px;
-}
-
-/* Eliminar la flecha del ::after (ya usamos .proj-link) */
-.project-row::after { display: none; }
-
-/* Thumbnail — cuadrado fijo */
-.proj-thumb {
-  width: 56px;
-  height: 56px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  flex-shrink: 0;
-  background: rgba(240,237,230,0.03);
-}
-
-.proj-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Categoría */
-.proj-category {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  opacity: 0.7;
-}
-
-/* Enlace externo — visible siempre, clickable */
-.proj-link {
-  font-size: 18px;
-  color: var(--accent);
-  opacity: 0.25;
-  transition: opacity 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  z-index: 2;
-}
-
-.proj-link:hover { opacity: 1; }
-.proj-thumb--empty { background: rgba(240,237,230,0.03); }
-
-@media (max-width: 860px) {
-  .project-row { grid-template-columns: 48px 1fr; gap: 16px; padding: 20px; }
-  .proj-category, .proj-year, .proj-link { display: none; }
+  .proyectos-wrap { 
+    padding: 24px 12px 0; 
+    max-width: 100%;
+  }
+  .proj-thumb {
+    width: 40px;
+    height: 40px;
+  }
+  .project-row { 
+    grid-template-columns: 40px 1fr; 
+    padding: 10px 12px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .proj-info { 
+    min-width: 0;
+    word-break: break-word;
+  }
+  .proj-info h3 { 
+    font-size: 12px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .featured-content { 
+    padding: 16px 12px; 
+  }
+  .featured-content h2 { 
+    font-size: 18px; 
+  }
 }

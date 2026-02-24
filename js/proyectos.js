@@ -52,16 +52,13 @@ function renderRow(p, index) {
     ? `<div class="proj-thumb"><img src="${p.imagen_url}" alt="${p.titulo}"></div>`
     : `<div class="proj-thumb proj-thumb--empty"></div>`;
 
-  // El enlace solo aparece si existe; si no, celda vacía para mantener el grid
-  const link = p.enlace
-    ? `<a href="${p.enlace}" target="_blank" rel="noopener" class="proj-link" title="Ver proyecto">↗</a>`
-    : `<span></span>`;
-
   // Convertir categoría a lowercase para que el filtro funcione
   const categoria = (p.categoria || 'web').toLowerCase();
 
+  const dataHref = p.enlace ? `data-href="${p.enlace}"` : '';
+
   return `
-    <div class="project-row" data-category="${categoria}" style="animation: fadeUp 0.4s ease ${index * 0.06}s both;">
+    <div class="project-row" data-category="${categoria}" ${dataHref} style="animation: fadeUp 0.4s ease ${index * 0.06}s both;">
       ${thumb}
       <div class="proj-info">
         <h3>${p.titulo}</h3>
@@ -69,7 +66,6 @@ function renderRow(p, index) {
       </div>
       <span class="proj-category">${p.categoria || '—'}</span>
       <span class="proj-year">${formatDate(p.created_at)}</span>
-      ${link}
     </div>
   `;
 }
@@ -115,6 +111,18 @@ function initFilters() {
   });
 }
 
+/* ---- Mobile row clicks ---- */
+function initMobileRowClicks() {
+  document.querySelectorAll('.project-row[data-href]').forEach(row => {
+    row.addEventListener('click', (e) => {
+      // Abre el enlace en nueva pestaña si el proyecto tiene asociado
+      window.open(row.dataset.href, '_blank');
+    });
+    // Cursor pointer para indicar que es clickeable
+    row.style.cursor = 'pointer';
+  });
+}
+
 /* ---- Bootstrap ---- */
 document.addEventListener('DOMContentLoaded', async () => {
   const featuredContainer = document.getElementById('featured-container');
@@ -137,6 +145,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     initFilters();
+    initMobileRowClicks();
 
   } catch (err) {
     console.error('Supabase error:', err);

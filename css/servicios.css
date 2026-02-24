@@ -4,6 +4,8 @@
 
 .servicios-wrap {
   padding: 80px 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Intro strip */
@@ -212,25 +214,90 @@
 }
 
 @media (max-width: 600px) {
-  .servicios-wrap { padding: 40px 16px 0; }
-  .servicios-intro { gap: 24px; margin-bottom: 40px; }
-  .servicios-intro > div:first-child p { font-size: 15px; margin-top: 16px; }
-  .servicios-aside { padding: 20px 16px; }
-  .aside-label { font-size: 9px; margin-bottom: 12px; }
-  .aside-list li { font-size: 12px; }
-  .service-card { padding: 32px 20px; }
-  .service-icon { font-size: 24px; margin-bottom: 20px; }
-  .service-card h3 { font-size: 20px; margin-bottom: 10px; }
-  .service-card p { font-size: 13px; margin-bottom: 16px; }
-  .service-tag { font-size: 9px; padding: 3px 8px; }
-  .service-num { font-size: 10px; right: 16px; bottom: 16px; }
-  .process-section h2 { font-size: 28px; margin-bottom: 32px; }
-  .process-steps { grid-template-columns: 1fr; }
-  .process-step { padding: 28px 20px; }
-  .process-step-num { font-size: 42px; margin-bottom: 12px; }
-  .process-step h4 { font-size: 12px; }
-  .process-step p { font-size: 12px; }
-  .process-step-arrow { width: 20px; height: 20px; font-size: 10px; }
+  .servicios-wrap { 
+    padding: 32px 16px 0;
+    max-width: 100%;
+  }
+  .servicios-intro { 
+    gap: 24px; 
+    margin-bottom: 32px; 
+  }
+  .servicios-intro > div:first-child h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.1;
+  }
+  .servicios-intro > div:first-child p { 
+    font-size: 14px; 
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+  .servicios-aside { 
+    padding: 16px 16px;
+    border: 1px solid var(--border);
+  }
+  .aside-label { 
+    font-size: 9px; 
+    margin-bottom: 10px; 
+  }
+  .aside-list li { 
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .service-card { 
+    padding: 24px 16px;
+    border: 1px solid var(--border);
+  }
+  .service-icon { 
+    font-size: 22px; 
+    margin-bottom: 16px; 
+  }
+  .service-card h3 { 
+    font-size: 18px; 
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .service-card p { 
+    font-size: 12px; 
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .service-tag { 
+    font-size: 8px; 
+    padding: 3px 8px; 
+  }
+  .service-num { 
+    font-size: 10px; 
+    right: 16px; 
+    bottom: 16px; 
+  }
+  .process-section h2 { 
+    font-size: 24px; 
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .process-steps { 
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .process-step { 
+    padding: 20px 16px;
+    border: 1px solid var(--border);
+  }
+  .process-step-num { 
+    font-size: 36px; 
+    margin-bottom: 10px; 
+  }
+  .process-step h4 { 
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  .process-step p { 
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .process-step-arrow { 
+    display: none;
+  }
 }
 
 @media (max-width: 400px) {
