@@ -212,10 +212,37 @@
 
 @media (max-width: 860px) {
   .proyectos-wrap { padding: 60px 24px 0; }
-  .project-row { grid-template-columns: 48px 1fr; gap: 16px; padding: 24px 20px; }
-  .proj-tags, .proj-year { display: none; }
+  .project-row { grid-template-columns: 48px 1fr; gap: 16px; padding: 20px; }
+  .proj-category, .proj-year, .proj-link { display: none; }
+  .proj-tags { display: none; }
   .project-row::after { display: none; }
   .featured-project { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .proyectos-wrap { padding: 40px 16px 0; }
+  .filter-bar { margin-bottom: 32px; }
+  .filter-label { font-size: 9px; }
+  .filter-btn { font-size: 10px; padding: 6px 12px; }
+  .project-row { grid-template-columns: 40px 1fr; gap: 12px; padding: 16px; }
+  .proj-info h3 { font-size: 15px; }
+  .proj-info p { font-size: 12px; }
+  .featured-project { margin-bottom: 48px; }
+  .featured-label { font-size: 9px; padding: 4px 10px; top: 12px; left: 12px; }
+  .featured-content { padding: 32px 24px; }
+  .featured-content h2 { font-size: 28px; margin-bottom: 16px; }
+  .featured-content p { font-size: 13px; margin-bottom: 20px; }
+  .featured-meta { gap: 10px; margin-bottom: 20px; }
+  .meta-row { font-size: 12px; }
+  .meta-row span:first-child { font-size: 10px; }
+}
+
+@media (max-width: 400px) {
+  .proyectos-wrap { padding: 32px 12px 0; }
+  .project-row { grid-template-columns: 32px 1fr; padding: 12px; }
+  .proj-info h3 { font-size: 13px; }
+  .featured-content { padding: 20px 16px; }
+  .featured-content h2 { font-size: 22px; }
 }
 
 /* ---- Reemplaza/añade al final de css/proyectos.css ---- */

@@ -178,3 +178,31 @@
   .philosophy-section { grid-template-columns: 1fr; }
   .philosophy-visual { max-width: 280px; }
 }
+
+@media (max-width: 600px) {
+  .nosotros-wrap { padding: 40px 16px 0; }
+  .about-text p { font-size: 14px; margin-bottom: 16px; line-height: 1.7; }
+  .about-text p:first-child { font-size: 16px; }
+  .value-row { padding: 20px 16px; gap: 16px; }
+  .value-index { font-size: 10px; }
+  .value-body h4 { font-size: 13px; }
+  .value-body p { font-size: 12px; }
+  .stats-bar { grid-template-columns: 1fr; margin-bottom: 48px; }
+  .stat-block { padding: 32px 20px; border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-block:last-child { border-bottom: none; }
+  .stat-number { font-size: 42px; }
+  .stat-desc { font-size: 11px; }
+  .philosophy-section { gap: 32px; margin-bottom: 48px; }
+  .philosophy-visual { max-width: 100%; aspect-ratio: auto; min-height: 240px; }
+  .philosophy-text h3 { font-size: 24px; margin-bottom: 16px; }
+  .philosophy-text p { font-size: 13px; margin-bottom: 12px; }
+  .btn { padding: 10px 20px; font-size: 11px; }
+}
+
+@media (max-width: 400px) {
+  .nosotros-wrap { padding: 32px 12px 0; }
+  .about-text p { font-size: 13px; }
+  .value-row { padding: 16px 12px; }
+  .stat-block { padding: 20px 16px; }
+  .philosophy-text h3 { font-size: 20px; }
+}

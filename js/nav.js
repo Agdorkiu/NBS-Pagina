@@ -1,15 +1,34 @@
 /* =========================================
    NOMAD BYTE STUDIOS — nav.js
-   Active nav link + scroll reveal
+   Active nav link + scroll reveal + mobile menu
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---- Hamburger menu toggle ---- */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+
   /* ---- Active nav link ---- */
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const navLinkElements = document.querySelectorAll('.nav-links a');
 
-  navLinks.forEach(link => {
+  navLinkElements.forEach(link => {
     const href = link.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
